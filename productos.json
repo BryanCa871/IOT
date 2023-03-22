@@ -1,0 +1,130 @@
+[
+    {
+        "codigo": "11",
+        "nombre": "ss",
+        "descripcion": "ss",
+        "precio": 11,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "9090",
+        "nombre": "9090",
+        "descripcion": "9090",
+        "precio": 9090,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "11",
+        "nombre": "11",
+        "descripcion": "11",
+        "precio": 11,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "222",
+        "nombre": "222",
+        "descripcion": "222",
+        "precio": 222,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "22",
+        "nombre": "22",
+        "descripcion": "22",
+        "precio": 22,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "11",
+        "nombre": "11",
+        "descripcion": "11",
+        "precio": 11,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "11",
+        "nombre": "11",
+        "descripcion": "11",
+        "precio": 11,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "33",
+        "nombre": "33",
+        "descripcion": "33",
+        "precio": 33,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "22",
+        "nombre": "22",
+        "descripcion": "22",
+        "precio": 22,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "33",
+        "nombre": "33",
+        "descripcion": "33",
+        "precio": 33,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "99",
+        "nombre": "JABON",
+        "descripcion": "OO",
+        "precio": 99,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "99",
+        "nombre": "JABON",
+        "descripcion": "PP",
+        "precio": 99,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "777",
+        "nombre": "koko",
+        "descripcion": "koko",
+        "precio": 777,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "22",
+        "nombre": "22",
+        "descripcion": "22",
+        "precio": 22,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "00",
+        "nombre": "PRUEBA",
+        "descripcion": "PRUEBA",
+        "precio": 0,
+        "lista": [],
+        "file": "productos.json"
+    },
+    {
+        "codigo": "55",
+        "nombre": "popop",
+        "descripcion": "popopop",
+        "precio": 55,
+        "lista": [],
+        "file": "productos.json"
+    }
+]
