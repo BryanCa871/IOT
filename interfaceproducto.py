@@ -1,7 +1,7 @@
 from producto import Producto
 from pymongo import MongoClient
 from demo import mongodb2
-from Ultrasonico import Ultrasonico
+from Ultrasonico import Ultrasonico, ultrasonico
 
 class InterfaceProducto(mongodb2):
     def __init__(self) -> None:
@@ -16,7 +16,7 @@ class InterfaceProducto(mongodb2):
             print("5. salir")
             opcion = input("Elija una opcion")
             if opcion == "1":
-                InterfaceProducto.ultrasonico()
+                ultrasonico()
                 self.guardar()
                 self.mongodb()
             elif opcion == "2":
