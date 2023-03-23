@@ -6,7 +6,7 @@ class Ultrasonico:
     def __init__(self):
         self.client = MongoClient("mongodb+srv://admin:12345@cluster0.lksnws1.mongodb.net/?retryWrites=true&w=majority") # Conectar con MongoDB
         self.db = self.client['DATOS'] # Elegir la base de datos
-        self.collection = self.db['ultrasonido'] # Elegir la colección
+        self.collection = self.db['DATOS'] # Elegir la colección
 
     def leer(self):
         TRIG = 23 #Variable que contiene el GPIO al cual conectamos la señal TRIG del sensor

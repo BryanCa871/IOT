@@ -121,8 +121,8 @@
     },
     {
         "codigo": "55",
-        "nombre": "popop",
-        "descripcion": "popopop",
+        "nombre": "DATOS",
+        "descripcion": "DATOS",
         "precio": 55,
         "lista": [],
         "file": "productos.json"
