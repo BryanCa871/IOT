@@ -1,33 +1,34 @@
-from Ultrasonico import Ultrasonico
 
-class Interfaz:
-    def __init__(self):
+from Ultrasonico import Ultrasonico
+class interfaz:
+    def __init__(self): 
         super().__init__()
 
-    def led(self):
+    def led():
         Led.led()
-
-    def ultrasonico(self):
-        Ultrasonico().leer()
-
-    def temperatura(self):
+    def ultrasonico():
+        Ultrasonico.leer()
+    def temperatura():
         temp.temperatura()
+        
 
-if __name__ == '__main__':
+    
+
+if __name__=='__main__':
     res = 0
-    while res != 4:
+    while res != 4 :
         print("1-leer sensor ultrasonico")
         print("2-leer temperatura y humedad")
         print("3-prender o apagar un led")
         print("4-salir")
-        res = raw_input("Que deseas hacer?")
-        res = int(res)
+        res = input("Que deseas hacer?")
+        res = int (res)
         if res == 1:
-            Interfaz().ultrasonico()
+            Ultrasonico.leer()
         elif res == 2:
-            Interfaz().temperatura()
+            interfaz.temperatura()
         elif res == 3:
-            Interfaz().led()
+            interfaz.led()
         elif res == 4:
             print("Good bye!!!")
         else:

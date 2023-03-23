@@ -9,72 +9,45 @@ db = client['DATOS']
 collection = db['DATOS']
 
 class Ultrasonico:
-    def __init__(self): 
-        super().__init__()
-
     def leer():
-        TRIG = 23 #Variable que contiene el GPIO al cual conectamos la señal TRIG del sensor
-        ECHO = 24 #Variable que contiene el GPIO al cual conectamos la señal ECHO del sensor
+        TRIG = 23
+        ECHO = 24
 
-        GPIO.setmode(GPIO.BCM)     #Establecemos el modo según el cual nos refiriremos a los GPIO de nuestra RPi            
-        GPIO.setup(TRIG, GPIO.OUT) #Configuramos el pin TRIG como una salida 
-        GPIO.setup(ECHO, GPIO.IN)  #Configuramos el pin ECHO como una salida 
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(TRIG, GPIO.OUT)
+        GPIO.setup(ECHO, GPIO.IN)
 
-        # Diccionario para almacenar los datos del sensor
         data = {
             'tipo': 'ultrasonico',
             'valor': 0,
             'fecha': time.strftime('%Y-%m-%d %H:%M:%S')
         }
 
-        #Contenemos el código principal en un aestructura try para limpiar los GPIO al terminar o presentarse un error
-        try:
-            #Implementamos un loop infinito
-            while True:
+        # Enviamos el pulso ultrasónico
+        GPIO.output(TRIG, GPIO.LOW)
+        time.sleep(0.5)
+        GPIO.output(TRIG, GPIO.HIGH)
+        time.sleep(0.00001)
+        GPIO.output(TRIG, GPIO.LOW)
 
-                # Ponemos en bajo el pin TRIG y después esperamos 0.5 seg para que el transductor se estabilice
-                GPIO.output(TRIG, GPIO.LOW)
-                time.sleep(0.5)
+        # Esperamos a que el pin ECHO se ponga en alto y medimos el tiempo
+        while GPIO.input(ECHO) == GPIO.LOW:
+            pulso_inicio = time.time()
+        while GPIO.input(ECHO) == GPIO.HIGH:
+            pulso_fin = time.time()
 
-                #Ponemos en alto el pin TRIG esperamos 10 uS antes de ponerlo en bajo
-                GPIO.output(TRIG, GPIO.HIGH)
-                time.sleep(0.00001)
-                GPIO.output(TRIG, GPIO.LOW)
+        # Calculamos la duración y la distancia
+        duracion = pulso_fin - pulso_inicio
+        distancia = (34300 * duracion) / 2
 
-                # En este momento el sensor envía 8 pulsos ultrasónicos de 40kHz y coloca su pin ECHO en alto
-                # Debemos detectar dicho evento para iniciar la medición del tiempo
-                
-                while True:
-                    pulso_inicio = time.time()
-                    if GPIO.input(ECHO) == GPIO.HIGH:
-                        break
+        # Actualizamos el valor en el diccionario y lo subimos a la base de datos
+        data['valor'] = distancia
+        print("Distancia: %.2f cm" % distancia)
 
-                # El pin ECHO se mantendrá en HIGH hasta recibir el eco rebotado por el obstáculo. 
-                # En ese momento el sensor pondrá el pin ECHO en bajo.
-                # Prodedemos a detectar dicho evento para terminar la medición del tiempo
-                
-                while True:
-                    pulso_fin = time.time()
-                    if GPIO.input(ECHO) == GPIO.LOW:
-                        break
+        if client.server_info()['ok']:
+            collection.insert_one(data)
+        else:
+            print("No hay conexión con la base de datos")
 
-                # Tiempo medido en segundos
-                duracion = pulso_fin - pulso_inicio
-
-                #Obtenemos la distancia considerando que la señal recorre dos veces la distancia a medir y que la velocidad del sonido es 343m/s
-                distancia = (34300 * duracion) / 2
-
-                # Agregamos el valor a nuestro diccionario
-                data['valor'] = 25.0
-
-                # Imprimimos resultado
-                print( "Distancia: %.2f cm" % 25.0)
-
-                # Subimos el diccionario a MongoDB si hay conexión
-                if client.server_info()['ok']:
-                    collection.insert_one(data)
-                else:
-                    print("No hay conexión con la base de datos")
-
-        except:
-            GPIO.cleanup()
+        # Limpiamos los GPIO
+        GPIO.cleanup()
