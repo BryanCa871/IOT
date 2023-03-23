@@ -1,6 +1,5 @@
 
 from Ultrasonico import Ultrasonico
-from Temperatura import temperatura as temp
 class interfaz:
     def __init__(self): 
         super().__init__()
