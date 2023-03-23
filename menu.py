@@ -3,13 +3,17 @@ from Ultrasonico import Ultrasonico
 class interfaz:
     def __init__(self): 
         super().__init__()
+        self.ultrasonico_obj = Ultrasonico()
 
-    def led():
+    def led(self):
         Led.led()
-    def ultrasonico():
-        Ultrasonico.leer()
-    def temperatura():
+
+    def ultrasonico(self):
+        self.ultrasonico_obj.leer()
+
+    def temperatura(self):
         temp.temperatura()
+
         
 
     
@@ -24,7 +28,7 @@ if __name__=='__main__':
         res = input("Que deseas hacer?")
         res = int (res)
         if res == 1:
-            Ultrasonico.leer()
+            interfaz.ultrasonico()
         elif res == 2:
             interfaz.temperatura()
         elif res == 3:
