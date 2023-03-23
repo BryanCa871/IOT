@@ -1,4 +1,4 @@
-from Led import led as Led
+
 from Ultrasonico import ultrasonico
 from Temperatura import temperatura as temp
 class interfaz:
