@@ -9,7 +9,7 @@ db = client['DATOS']
 collection = db['DATOS']
 
 class Ultrasonico:
-    def leer():
+    def leer(self):
         TRIG = 23
         ECHO = 24
 

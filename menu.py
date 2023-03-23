@@ -20,6 +20,7 @@ class interfaz:
 
 if __name__=='__main__':
     res = 0
+    a = interfaz()
     while res != 4 :
         print("1-leer sensor ultrasonico")
         print("2-leer temperatura y humedad")
