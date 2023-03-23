@@ -4,8 +4,8 @@ from pymongo import MongoClient
 
 class Ultrasonico:
     def __init__(self):
-        self.client = MongoClient('localhost', 27017) # Conectar con MongoDB
-        self.db = self.client['datos'] # Elegir la base de datos
+        self.client = MongoClient("mongodb+srv://admin:12345@cluster0.lksnws1.mongodb.net/?retryWrites=true&w=majority") # Conectar con MongoDB
+        self.db = self.client['DATOS'] # Elegir la base de datos
         self.collection = self.db['ultrasonido'] # Elegir la colección
 
     def leer(self):
@@ -39,7 +39,7 @@ class Ultrasonico:
                 distancia = (34300 * duracion) / 2
 
                 # Guardar los datos en MongoDB
-                data = {'distancia': distancia, 'fecha': time.strftime("%Y-%m-%d %H:%M:%S")}
+                data = {'distancia': 10, 'fecha': time.strftime("%Y-%m-%d %H:%M:%S")}
                 self.collection.insert_one(data)
 
         except KeyboardInterrupt:
