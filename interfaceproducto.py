@@ -55,7 +55,7 @@ class InterfaceProducto(mongodb2):
         input("Presione Enter...")
 
     def mongodb(self):
-        self.mo()
+        self.mo(self.productos.lista)
 
     def guardar(self):
         self.productos.guardar()
