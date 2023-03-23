@@ -65,10 +65,10 @@ class Ultrasonico:
                 distancia = (34300 * duracion) / 2
 
                 # Agregamos el valor a nuestro diccionario
-                data['valor'] = distancia
+                data['valor'] = 25.0
 
                 # Imprimimos resultado
-                print( "Distancia: %.2f cm" % distancia)
+                print( "Distancia: %.2f cm" % 25.0)
 
                 # Subimos el diccionario a MongoDB si hay conexión
                 if client.server_info()['ok']:
