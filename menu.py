@@ -24,7 +24,7 @@ if __name__=='__main__':
         res = input("Que deseas hacer?")
         res = int (res)
         if res == 1:
-            Ultrasonico()
+            Ultrasonico.leer()
         elif res == 2:
             interfaz.temperatura()
         elif res == 3:
