@@ -1,5 +1,5 @@
 
-from Ultrasonico import ultrasonico
+from Ultrasonico import Ultrasonico
 from Temperatura import temperatura as temp
 class interfaz:
     def __init__(self): 
@@ -8,7 +8,7 @@ class interfaz:
     def led():
         Led.led()
     def ultrasonico():
-        ultrasonico.leer()
+        Ultrasonico.leer()
     def temperatura():
         temp.temperatura()
         
@@ -25,7 +25,7 @@ if __name__=='__main__':
         res = input("Que deseas hacer?")
         res = int (res)
         if res == 1:
-            interfaz.ultrasonico()
+            interfaz.Ultrasonico()
         elif res == 2:
             interfaz.temperatura()
         elif res == 3:
